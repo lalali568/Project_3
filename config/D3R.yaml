@@ -1,0 +1,43 @@
+model: D3R
+seed: 1
+device: cuda
+dataset: SMD
+
+SMD:
+  lr: 0.0001
+  batch_size: 32
+  epochs: 10
+  patience: 3
+
+  train_data_path: data/SMD/SMD_train_data.npy
+  train_date_path: data/SMD/SMD_train_date.npy
+  test_data_path: data/SMD/SMD_test_data.npy
+  test_date_path: data/SMD/SMD_test_date.npy
+  test_label_path: data/SMD/SMD_test_label.npy
+
+  period: 1440 #平滑的时间长度
+  train_rate: 0.8 #多少拿来训练，剩下拿来做验证集
+  feature_num: 0 #在代码过程中得到
+  time_num: 0 #在代码过程中得到
+  window_size: 60
+  dropout: 0.6
+
+  time_steps: 100 #time step of diffusion
+  beta_start: 0.0001 # start of diffusion beta
+  beta_end: 0.02 # end of diffusion beta
+  t: 500 #time step of adding noise
+  p: 1 #peak value of trend disturbance
+  d: 30 #shift of period
+  q: 0.01 # init anomaly probability of spot
+
+  model_dim: 512 #dimension of hidden layer
+  ff_dim: 2048 #dimension of fcn
+  atten_dim: 64 #dimension of various attention
+
+  block_num: num of various block
+  head_num: num of attention head
+
+
+SWAT:
+  train_data_path: data/SWAT/SWAT_train_data.npy
+  train_date_path: data/SWAT/SWAT_train_date.npy
