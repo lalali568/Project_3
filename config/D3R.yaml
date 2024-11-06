@@ -34,8 +34,8 @@ SMD:
   ff_dim: 2048 #dimension of fcn
   atten_dim: 64 #dimension of various attention
 
-  block_num: num of various block
-  head_num: num of attention head
+  block_num: 2 #num of various block
+  head_num: 4 #num of attention head
 
 
 SWAT:

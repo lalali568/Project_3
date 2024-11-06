@@ -22,10 +22,10 @@ def _process_one_batch(model,batch_data, batch_time, batch_stable, device,p,trai
         return stable, trend, recon
 
 def trainer(config,device,optimizer,model,train_loader,valid_loader):
-    path=f"checkpoints/{config[model]}_{config['dataset']}.pkl"
+    path=f"checkpoints/{config['model']}_{config['dataset']}.pkl"
     early_stopping=earlystop.EarlyStop(path,config['patience'])
 
-    for e in range(config.epochs):
+    for e in range(config['epochs']):
         start = time()
         model.train()
         train_loss = []

@@ -1,3 +1,4 @@
+import os
 import torch
 from utils.evaluate import evaluate
 from utils import Seed
@@ -6,6 +7,7 @@ from models import D3R
 from trainers import D3R_trainer
 from tester import D3R_tester
 from torch.utils.data import DataLoader
+import pandas as pd
 import yaml
 
 """#通过yaml文件读取参数, 并设置随机种子"""
@@ -35,7 +37,7 @@ if config['model']=='D3R':
 """开始训练"""
 if config['model']=='D3R':
     optimizer = torch.optim.Adam(model.parameters(), lr=config['lr'],weight_decay=1e-4)
-    D3R_trainer.trainer(config,optimizer,model,train_loader,valid_loader)
+    D3R_trainer.trainer(config,device,optimizer,model,train_loader,valid_loader)
 """开始测试"""
 if config['model']=='D3R':
     # 加载模型
@@ -46,6 +48,16 @@ if config['model']=='D3R':
 """计算结果"""
 if config['model']=='D3R':
     res = evaluate(init_score.reshape(-1), test_score.reshape(-1), test_label.reshape(-1), q=config['q'])
-    print("\n=============== " + config['dataset'] + " ===============")
-    print(f"P: {res['precision']:.4f} || R: {res['recall']:.4f} || F1: {res['f1_score']:.4f}")
-    print("=============== " + config['dataset'] + " ===============\n")
+    res['seed']=config['seed']
+    res['test_dataset']=config['test_date_path']
+    res_df=pd.DataFrame([res])
+    csv_path=f"result/{config['model']}_{config['dataset']}.csv"
+    if os.path.exists(csv_path):
+        res_df.to_csv(csv_path, mode='a', header=False, index=False)
+    else:
+        res_df.to_csv(csv_path, mode='w', header=True, index=False)
+
+
+
+
+    
