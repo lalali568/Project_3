@@ -22,7 +22,7 @@ SMD:
   window_size: 60
   dropout: 0.6
 
-  time_steps: 100 #time step of diffusion
+  time_steps: 1000 #time step of diffusion
   beta_start: 0.0001 # start of diffusion beta
   beta_end: 0.02 # end of diffusion beta
   t: 500 #time step of adding noise
@@ -35,7 +35,7 @@ SMD:
   atten_dim: 64 #dimension of various attention
 
   block_num: 2 #num of various block
-  head_num: 4 #num of attention head
+  head_num: 88 #num of attention head
 
 
 SWAT:
