@@ -1,0 +1,50 @@
+model: DAGMM
+seed: 1
+dataset: SWAT
+device: cuda
+patience: 3
+
+
+SMD:
+  lr: 0.0001
+  epochs: 100
+  batch_size: 32
+  window_size: 60
+  stride: 5
+  anomaly_ratio: 90 #以90为阈值
+  feature_dim: 38 #在代码过程中得到
+
+  test_data_path: data/SMD/test/csv_files/machine-3-11.csv
+  test_label_path: data/SMD/test_label/csv_files/machine-3-11.csv
+
+  endcoder_hiddens: [38,20,10]
+  decoder_hiddens: [10,20,38]
+  est_hiddens: [11,1]
+
+
+SWAT:
+
+  lr: 0.0001
+  epochs: 100
+  batch_size: 32
+  window_size: 60
+  stride: 5
+  anomaly_ratio: 90 #以90为阈值
+  feature_dim: 51
+
+  test_data_path: data/SWAT/test_data.csv
+  test_label_path: data/SWAT/labels.csv
+
+  endcoder_hiddens: [51,30,20]
+  decoder_hiddens: [20,30,51]
+  est_hiddens: [21,1]
+
+
+WADI:
+  window_size: 60
+  stride: 5
+
+  test_data_path: data/WADI/test_data.csv
+  test_label_path: data/WADI/labels.csv
+
+  comp_hiddens: [80,60,40]

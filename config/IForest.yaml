@@ -1,0 +1,40 @@
+model: IForest
+seed: 1
+device: cuda
+dataset: SWAT
+
+
+SMD:
+
+  window_size: 60
+  stride: 5
+
+  test_data_path: data/SMD/test/csv_files/machine-3-11.csv
+  test_label_path: data/SMD/test_label/csv_files/machine-3-11.csv
+
+  n_estimators: 1000
+  contamination: 0.2
+  max_samples: 3000
+
+SWAT:
+
+  window_size: 60
+  stride: 5
+
+  test_data_path: data/SWAT/test_data.csv
+  test_label_path: data/SWAT/labels.csv
+
+  n_estimators: 100
+  contamination: 0.1
+  max_samples: 20000
+
+WADI:
+  window_size: 60
+  stride: 5
+
+  test_data_path: data/WADI/test_data.csv
+  test_label_path: data/WADI/labels.csv
+
+  n_estimators: 300
+  contamination: 0.1
+  max_samples: 20000

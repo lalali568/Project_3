@@ -1,0 +1,68 @@
+model: MTGFLOW
+seed: 0
+device: cuda
+dataset: SMD
+patience: 3
+
+SMD:
+  epochs: 10
+  batch_size: 128
+  lr: 0.0001
+  weight_decay: 5e-4
+  dropout: 0.3
+  window_size: 60
+  stride: 10
+  input_size: 1
+  n_sensor: 38
+
+  n_blocks: 1
+  hidden_size: 32 #Hidden layer size for MADE (and each MADE block in an MAF)
+  n_hidden: 1 #Number of hidden layers in each MADE
+  batch_norm: False
+  train_val_split: 0.6
+
+  test_data_path: data/SMD/test/csv_files/machine-1-8.csv
+  test_label_path: data/SMD/test_label/csv_files/machine-1-8.csv
+
+
+SWAT:
+  epochs: 40
+  batch_size: 128
+  lr: 0.0001
+  weight_decay: 5e-4
+  dropout: 0.3
+  window_size: 60
+  stride: 10
+  input_size: 1
+  n_sensor: 51
+
+  n_blocks: 1
+  hidden_size: 32 #Hidden layer size for MADE (and each MADE block in an MAF)
+  n_hidden: 1 #Number of hidden layers in each MADE
+  batch_norm: False
+  train_val_split: 0.6
+
+  test_data_path: data/SWAT/test_data.csv
+  test_label_path: data/SWAT/labels.csv
+
+
+WADI:
+  epochs: 40
+  batch_size: 128
+  lr: 2e-3
+  weight_decay: 5e-4
+  dropout: 0.3
+  window_size: 60
+  stride: 10
+  input_size: 1
+  n_sensor: 123
+
+  n_blocks: 1
+  hidden_size: 32 #Hidden layer size for MADE (and each MADE block in an MAF)
+  n_hidden: 1 #Number of hidden layers in each MADE
+  batch_norm: False
+  train_val_split: 0.6
+
+  test_data_path: data/WADI/test_data.csv
+  test_label_path: data/WADI/labels.csv
+

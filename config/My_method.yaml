@@ -1,0 +1,66 @@
+SMD:
+  batch_size: 64
+  cnn_embedding_dim: 10
+  data_ratio: 0.6
+  dynamic_pick: 1
+  embedding_dim: 120
+  epochs: 20
+  input_size: 38
+  lr: 0.001
+  n_spatial_temporal_layers: 2
+  padding_size: 20
+  padding_stride: 4
+  patch_attention_heads: 4
+  patience: 3
+  plot_flag: 1
+  spatial_temporal_heads: 4
+  stride: 1
+  test_data_path: data/SMD/test/csv_files/machine-1-1.csv
+  test_label_path: data/SMD/test_label/csv_files/machine-1-1.csv
+  trend_size: 121
+  weight_decay: 1.0e-06
+  window_size: 120
+SWAT:
+  batch_size: 64
+  cnn_embedding_dim: 5
+  data_ratio: 0.6
+  dynamic_pick: 0
+  embedding_dim: 120
+  epochs: 100
+  input_size: 51
+  lr: 0.001
+  n_spatial_temporal_layers: 2
+  padding_size: 50
+  padding_stride: 5
+  patch_attention_heads: 4
+  patience: 3
+  plot_flag: 1
+  spatial_temporal_heads: 4
+  stride: 5
+  test_data_path: data/SWAT/SWaT_Dataset_Attack_v0.csv
+  test_label_path: data/SWAT/labels.csv
+  trend_size: 121
+  weight_decay: 1.0e-06
+  window_size: 120
+WADI:
+  batch_size: 128
+  data_ratio: 0.6
+  dropout: 0.3
+  embedding_dim: 123
+  epochs: 100
+  heads: 6
+  input_size: 123
+  lr: 0.001
+  n_transformer_layers: 4
+  patch_size: 10
+  stride: 1
+  test_data_path: data/WADI/WADI_attackdataLABLE.csv
+  test_label_path: data/WADI/labels.csv
+  trend_size: 101
+  weight_decay: 1.0e-05
+  window_size: 30
+dataset: SMD
+device: cuda
+model: My_method
+plot_flag: 0
+seed: 0
