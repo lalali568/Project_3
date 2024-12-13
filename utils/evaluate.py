@@ -32,9 +32,9 @@ def getAffiliationMetrics(label, pred):
 
 def evaluate(init_score, test_score, test_label=None, q=1e-2):
     res = {
-        'init_score': init_score,
-        'test_score': test_score,
-        'test_label': test_label,
+        # 'init_score': init_score,
+        # 'test_score': test_score,
+        # 'test_label': test_label,
         'q': q,
     }
 
@@ -43,7 +43,6 @@ def evaluate(init_score, test_score, test_label=None, q=1e-2):
     threshold = getThreshold(init_score, test_score, q=q)
     test_pred = (test_score > threshold).astype(int)
     res['threshold'] = threshold
-    res['test_pred'] = test_pred
 
 
     if test_label is not None:
